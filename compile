@@ -1,0 +1,11 @@
+#/bin/bash
+
+SRC=src
+BIN=bin
+PACKAGE=com/liesard/sort
+
+javac -cp $BIN/*.class -d $BIN/ $SRC/$PACKAGE/*.java
+
+if [[ $1 == 'build' ]]; then
+    jar cf sort.jar bin/*
+fi

@@ -5,39 +5,31 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Sort {
-	public static List<String> sort(List<String> list) {
-		List<String> sortedList = new ArrayList<String>();
-		String tmp;
-		Character c, d;
-		boolean swapped = false;
+    public static List<String> bubbleSort(List<String> list) {
+        String tmp;
+        Character currentChar, lastChar;
+        boolean swapped = false;
 
-		while (!swapped) {
-			for (int index = 0; index < list.size() - 1; index++) {
-				c = list.get(index).charAt(0);
-				d = list.get(index + 1).charAt(0);
+        for (int index = 1; index < list.size(); index++) {
+            currentChar = list.get(index).charAt(0);
+            lastChar = list.get(index - 1).charAt(0);
 
-				if (c > d) {
-					if (index == list.size() - 1 && list.size() > 0) {
-						sortedList.add(0, list.get(index));
-						list.remove(index);
-						index = 0;
-					}
-					tmp = list.get(index + 1);
-					list.set(index + 1, list.get(index));
-					list.set(index, tmp);
-				} else if (c < d) {
-					continue;
-				}
-			}
-		}
+            if (currentChar < lastChar) {
+                tmp = list.get(index - 1);
+                list.set(index - 1, list.get(index));
+                list.set(index, tmp);
+                swapped = true;
+            }
+            if (index == list.size() - 1) {
+                if (!swapped) {
+                    break;
+                } else {
+                    index = 0;
+                    swapped = false;
+                }
+            }
+        }
 
-		return sortedList;
-	}
-
-	public static void main(String[] args) {
-		List<String> arguments = Arrays.asList(args);
-		for (String s : sort(arguments)) {
-			System.out.println(s);
-		}
-	}
+        return list;
+    }
 }
