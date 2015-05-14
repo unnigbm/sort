@@ -1,9 +1,9 @@
 This is a bubble sort implementation in Java
 
 HOW TO BUILD:
-Run `./compile` to generate the .class files
-Run `./compile build` to generate the .class files and the .jar file
+Run `./compile` to compile the source files into class files
+Run `./compile jar` to generate the jar package from the class files
+Run `./compile javadoc` to generate the javadoc from the source files
 
-TODO (maybe):
-Javadoc
+TODO:
 Add more sorting algorithms

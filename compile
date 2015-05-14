@@ -6,6 +6,13 @@ PACKAGE=com/liesard/sort
 
 javac -cp $BIN/*.class -d $BIN/ $SRC/$PACKAGE/*.java
 
-if [[ $1 == 'build' ]]; then
+if [[ $1 == 'jar' ]]; then
     jar cf sort.jar bin/*
+fi
+
+if [[ $1 == 'javadoc' ]]; then
+    if [ ! -d javadoc ]; then
+        mkdir javadoc/
+    fi
+    javadoc -d javadoc -public com.liesard.sort src/com/liesard/sort/*
 fi
