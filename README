@@ -7,3 +7,5 @@ Run `./compile javadoc` to generate the javadoc from the source files
 
 TODO:
 Add more sorting algorithms
+
+(Please note that the contructor and main function are only there for testing purposes.  Remove them if you would like to use this as a library)
