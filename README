@@ -1,11 +1,12 @@
 This is a bubble sort implementation in Java
 
 HOW TO BUILD:
-Run `./compile` to compile the source files into class files
-Run `./compile jar` to generate the jar package from the class files
-Run `./compile javadoc` to generate the javadoc from the source files
+Run `./build` to compile the source files into class files
+Run `./build jar` to generate the jar package from the class files
+Run `./build javadoc` to generate the javadoc from the source files
+Run `./build clean` to remove the files associated with the javadoc, jar package and binary files
 
 TODO:
 Add more sorting algorithms
 
-(Please note that the contructor and main function are only there for testing purposes.  Remove them if you would like to use this as a library)
+(Please note that the contructor and main function are only there for testing purposes.  Remove them if you would like to use this as a library.  I'll also remove them as soon as I'm done)

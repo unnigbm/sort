@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Sort: a library that sorts a string of text using various methods
+ * Sort: A library that sorts a string of text using various methods
  * @author liesard
  * @version 0.1
  */
@@ -47,6 +47,10 @@ public class Sort {
             }
         }
 
+        return list;
+    }
+
+    public List<String> mergeSort(List<String> list) {
         return list;
     }
 
