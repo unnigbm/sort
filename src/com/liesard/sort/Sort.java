@@ -78,7 +78,8 @@ public class Sort {
     }
 
     private static boolean checkStrings(String string0, String string1) {
-        int stringLength = string0.length() < string1.length() ? string0.length() : string1.length();
+        int stringLength = string0.length() < string1.length() ?
+                           string0.length() : string1.length();
 
         for (int charPos = 0; charPos < stringLength; charPos++) {
             if (string0.charAt(charPos) < string1.charAt(charPos)) {
