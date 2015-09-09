@@ -5,7 +5,7 @@ BIN=bin
 PACKAGE=com/liesard/sort
 
 if [ ! -d bin ]; then
-    mkdir bin
+    mkdir bin/
 fi
 javac -cp $BIN/*.class -d $BIN/ $SRC/$PACKAGE/*.java
 
@@ -16,8 +16,8 @@ elif [[ $1 == 'javadoc' ]]; then
     if [ ! -d javadoc ]; then
         mkdir javadoc/
     fi
-    javadoc -d javadoc -public com.liesard.sort src/com/liesard/sort/*
+    javadoc -d javadoc -quiet -windowtitle "Sort - liesard" -author -version src/com/liesard/sort/*
 
 elif [[ $1 == 'clean' ]]; then
-    rm -r bin/ javadoc/ package-list sort.jar
+    rm -r bin/ javadoc/ sort.jar
 fi
