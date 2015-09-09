@@ -7,23 +7,16 @@ import java.util.List;
 /**
  * Sort: A library that sorts a string of text using various methods
  * @author liesard
- * @version 0.1
+ * @version 0.2
  */
 
 public class Sort {
-    public Sort(List<String> list) {
-        bubbleSort(list);
-
-        for (String s : list) {
-            System.out.println(s);
-        }
-    }
-
     /** Sorts a list of strings using bubble sort
+     *  @since 0.1
      *  @param list The list to be sorted
      *  @return The sorted list
      */
-    public List<String> bubbleSort(List<String> list) {
+    public static List<String> bubbleSort(List<String> list) {
         String currentWord, lastWord, tmp;
         boolean swapped = false;
         int wordLength;
@@ -50,11 +43,41 @@ public class Sort {
         return list;
     }
 
-    public List<String> mergeSort(List<String> list) {
+    /** Sorts a list of strings using merge sort
+     *  @since 0.2
+     *  @param list The list to be sorted
+     *  @return The sorted list
+     */
+    public static List<String> mergeSort(List<String> list) {
+        if (list.size() <= 2) {
+            if (list.size() == 2) {
+                if (checkStrings(list.get(0), list.get(1))) {
+                    swap(list, 0, 1);
+                }
+            }
+            return list;
+        }
+        List<String> list1 = new ArrayList<String>();
+        List<String> list2 = new ArrayList<String>();
+
+        for (int i = 0; i < list.size() / 2; i++) {
+            list1.add(list.get(i));
+        }
+        for (int i = list.size() / 2; i < list.size(); i++) {
+            list2.add(list.get(i));
+        }
+
+        mergeSort(list1);
+        mergeSort(list2);
+
+        // list.clear();
+        // list.addAll(list1);
+        // list.addAll(list2);
+
         return list;
     }
 
-    private boolean checkStrings(String string0, String string1) {
+    private static boolean checkStrings(String string0, String string1) {
         int stringLength = string0.length() < string1.length() ? string0.length() : string1.length();
 
         for (int charPos = 0; charPos < stringLength; charPos++) {
@@ -68,13 +91,19 @@ public class Sort {
         return false;
     }
 
-    private void swap(List<String> list, int index0, int index1) {
+    private static void swap(List<String> list, int index0, int index1) {
         String tmp = list.get(index0);
         list.set(index0, list.get(index1));
         list.set(index1, tmp);
     }
 
     public static void main(String[] args) {
-        new Sort(Arrays.asList(args));
+        List<String> list = Arrays.asList(args);
+
+        bubbleSort(list);
+
+        for (String s : list) {
+            System.out.println(s);
+        }
     }
 }
