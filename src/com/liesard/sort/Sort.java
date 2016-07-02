@@ -97,6 +97,24 @@ public class Sort {
         list.set(index0, list.get(index1));
         list.set(index1, tmp);
     }
+    
+    public static List<String> insertionSort(List<String> list) {
+        for (int i = 1; i < list.size() ; i++) {
+            pos=i;
+            for (int j = 0; j < i ; j++) {
+                if (checkStrings(list.get(j), list.get(i))) {
+                    pos=j;
+                    break;
+                }
+                String tmp = list.get(i);
+                for(int k=i;k>pos;k--) {
+                    list.set(k, list.get(k-1));
+                }
+                list.set(k, tmp);
+            }    
+        }
+        
+        
 
     public static void main(String[] args) {
         List<String> list = Arrays.asList(args);
